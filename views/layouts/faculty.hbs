@@ -1,0 +1,178 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-grid.css">
+    
+    <link rel="stylesheet" href="/stylesheets/semantic.css">
+ 
+    <script src="/javascripts/jquery-v03.min.js"></script>
+    <script src="/javascripts/semantic.min.js"></script>
+    <script src="/javascripts/fontawasome.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="bg-light">
+    
+    <!-- top navbar -->
+    <nav class="ui top fixed   menu mobile-nav shadow-sm ">
+        <div class="left menu">
+            <a href="#" class="sidebar-menu-toggler item" data-target="#sidebar">
+                <i class="fas fa-bars"></i>
+            </a>
+            
+        </div>
+        <div class="right menu">
+            <div class="ui dropdown item">
+               <i class="fas fa-cog"></i>
+                <div class="menu">
+                    <a href="#" class="item"><i class="far fa-user"></i> Profile</a>
+                    <a href="#" class="item"><i class="fas fa-power-off"></i> Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end of navbr -->
+
+
+    <!-- sidebar -->
+    <div class="ui sidebar purple inverted vertical menu sidebar-menu shadow-sm                " id="sidebar">
+        <div class="item  ">
+            <div class="header text-center  py-3 pb-4">
+
+              {{#if user}}
+              <div class="ui feed">
+  <div class="event">
+    <div class="label">
+      <img src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
+    </div>
+    <div class="content">
+     
+   <div class="summary m-0 text-white">
+        {{user.fullName}}
+    
+    </div>
+        <div class="meta m-0 text-white-50">
+          {{user.designation}}
+      </div>
+     
+    </div>
+ 
+  </div>
+</div>
+               
+              {{/if}}
+
+            </div>
+            <div class="    item">
+                <div class="header  ">
+                 <i class="far fa-chart-bar mr-2"></i>   General
+
+                </div>
+                <div class=" menu pl-5 ">
+                    <a href="/admin" class="header item">
+                        <div>
+                            <!-- <i class="icon tachometer alternate average mr-3"></i>  -->
+                            Dashboard
+                        </div>
+
+                    </a>
+                    <a href="#" class="header item">
+                        <div>
+                            <!-- <i class="icon tachometer alternate average mr-3"></i>  -->
+                            Profile
+                        </div>
+                    </a>
+                    <a href="#" class="header item">
+                        <div>
+                            <!-- <i class="icon tachometer alternate average mr-3"></i>  -->
+                            Email
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="  item">
+                <div class="header  ">
+                  <i class="fas fa-folder  mr-2"></i>  Management
+                </div>
+                <div class=" menu pl-5">
+                    <a href="/faculty/students" class="header item">
+                        <div class="py-1">
+                            <!-- <i class="icon user mr-3"></i> -->
+                            Students
+                        </div>
+
+                    </a>
+
+                    <a href="#" class=" header item">
+                        <div class="py-1">
+                            <!-- <i class="icon users mr-3"></i> -->
+                             Classes
+                        </div>
+                    </a>
+                    <a href="#" class="header item">
+                        <div class="py-1">
+                            <!-- <i class="icon user plus mr-3"></i> -->
+                            Assignments
+                        </div>
+                    </a>
+                  
+                </div>
+            </div>
+
+        
+            <div class="   item">
+                <div class="header  ">
+                 <i class="far fa-folder-open mr-2"></i>   More
+                </div>
+                <div class=" menu pl-5">
+       
+               
+                      <a href="/faculty/feedback" class="header   orange item">
+                        <div class="py-1">
+                            <!-- <i class="icon power mr-3"></i>  -->
+                            Feedback
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="item px-0">
+                <a href="/faculty/takeAttandance" class="ui button fluid">Take Attandance</a>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- end of sidebar -->
+
+
+
+  
+      <div class="pusher">
+        <div class="main-content  ">
+      
+  <div class="ui basic blurring segment">
+    
+
+{{{body}}}
+
+
+
+  </div>
+
+         
+    </div>
+      </div>
+
+    <script src="/javascripts/custom.js"></script>
+</body>
+
+</html>

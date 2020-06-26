@@ -1,0 +1,340 @@
+<div class="ui mini modal">
+  <div class="ui  header">Feedback Form
+    <div class=" mt-2 sub header">LM Thapar School of Management</div>
+  </div>
+  <div class="content">
+    <div class="  content">
+      <img class="image">
+      <div class="ui fluid form">
+        <div class="ui fluid field">
+
+          <label for="employeeID">Name</label>
+          <input type="text" name="name" id="studentName" required placeholder="Enter your full name">
+        </div>
+        <div class="ui fluid field">
+          <label for="employeeID">Phone No.</label>
+          <input type="number" id="studentPhone" name="studentPhone" required placeholder="Enter your phone number">
+        </div>
+        <div class="ui fluid field">
+          <label for="employeeID">Email</label>
+          <input type="email" id="studentEmail" name="email" required placeholder="Enter your email address">
+        </div>
+        <button class="ui violet fluid button " id="next">Next</button>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="image content">
+  <img class="image">
+  <div class="description">
+    <p></p>
+  </div>
+</div>
+</div>
+<div>
+  <div class="ui container pt-5">
+    <div class="ui segment p-5">
+      <div class="ui violet header m-0">{{facultyData.fullName}}</div>
+      <div class=" ui grey sub header m-0">{{facultyData.designation}}</div>
+      <input type="hidden" id="fID" value="{{facultyData.id}}">
+      <div class="ui divider"></div>
+
+      {{!-- Activated questions container --}}
+      <div class="ui column">
+        <div class="ui   stacked  ">
+          {{#if fromAdminQuestions}}
+
+
+          {{!-- questions from admin --}}
+          {{#each fromAdminQuestions }}
+          <div class="ui fluid card dissable-cards">
+
+            <div class="content">
+
+
+              <div class="header">{{this.question}} </div>
+              <input type="hidden" name="{{this.id}}" value="{{this.id}}">
+              <div class="description">
+                {{#if  this.yes  }}
+                <div class="ui form">
+                  <div class="inline fields">
+
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}_answer" class="" tabindex="0" class=" ">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, 'yes' , 'admin')">Yes</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}_answer" tabindex="0" class=" ">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, 'no' , 'admin')">No</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                {{/if}}
+
+                {{#if  this.rating  }}
+                <div class="ui form">
+                  <div class="inline fields">
+
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" checked="" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '1' , 'admin')">1</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '2' , 'admin')">2</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '3' , 'admin')">3</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '4' , 'admin')">4</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '5' , 'admin')">5</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                {{/if}}
+        {{#if  this.smiley  }}
+            <div class="ui basic border-0 stackable  p-0 buttons  ">
+  <button class="ui button" data-tooltip="Angry" id="{{this.id}}" onclick="submitRadio(this.id, 'Angry' , 'admin')" ><i class="far fa-angry"></i></button>
+ 
+  <button class="ui   button border-0 " data-tooltip="Not good" id="{{this.id}}" onclick="submitRadio(this.id, 'Not good' , 'admin')" ><i class="far fa-frown"></i></button>
+   <button class="ui button border-0" data-tooltip="Neutral" id="{{this.id}}" onclick="submitRadio(this.id, 'Neutral' , 'admin')" ><i class="far fa-meh"></i></button>
+  <button class="ui button border-0" data-tooltip="Good" id="{{this.id}}" onclick="submitRadio(this.id, 'Good' , 'admin')" ><i class="far fa-smile"></i></button>
+  <button class="ui button border-0" data-tooltip="Brilliant" id="{{this.id}}" onclick="submitRadio(this.id, 'Brilliant' , 'admin')" ><i class="far fa-laugh"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+                {{#if  this.like  }}
+                <div class="ui basic border-0   buttons">
+
+                  <button class="ui button border-0" id="{{this.id}}" onclick="submitRadio(this.id, 'Like' , 'admin')"
+                    data-tooltip="Like"><i class="far fa-thumbs-up"></i></button>
+                  <button class="ui button border-0" id="{{this.id}}"
+                    onclick="submitRadio(this.id, 'Dislike' , 'admin')" data-tooltip="Dislike"><i
+                      class="far fa-thumbs-down"></i></button>
+                </div>
+                <div class="ui form">
+
+                </div>
+
+                {{/if}}
+
+                {{#if  this.star  }}
+                <div class="ui star rating" data-id="101" data-rating="0" data-max-rating="5"></div>
+
+                {{/if}}
+                {{#if  this.comment  }}
+                <div class="ui form">
+                  <div class="field fluid">
+
+                    <div class="field">
+                      <textarea   id="{{this.id}}" onchange="submitComment(this.id, this.value, 'admin')" cols="30" rows="3" placeholder="Write your feedback"></textarea>
+                    </div>
+                  </div>
+                </div>
+                {{/if}}
+
+
+
+              </div>
+            </div>
+          </div>
+          {{/each}}
+          {{!-- end of admin questions --}}
+
+          {{/if}}
+
+
+          {{#each questions }}
+          <div class="ui fluid card">
+
+            <div class="content">
+
+
+              <div class="header">{{this.question}} </div>
+
+              <div class="description">
+
+
+                {{#if  this.yes  }}
+                <div class="ui form">
+                  <div class="inline fields">
+
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}_answer" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, 'yes' , 'faculty')">Yes</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}_answer" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, 'no' , 'faculty')">No</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                {{/if}}
+
+                {{#if  this.rating  }}
+                <div class="ui form">
+                  <div class="inline fields">
+
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" 
+                          name="{{this.id}}" checked="" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '1' , 'faculty')">1</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" 
+                          name="{{this.id}}" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '2' , 'faculty')">2</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" data-question="{{this.id}}" tabindex="0"
+                          class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '3' , 'faculty')">3</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '4' , 'faculty')">4</label>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+                        <label id="{{this.id}}" onclick="submitRadio(this.id, '5' , 'faculty')">5</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                {{/if}}
+
+
+
+                {{!-- smily --}}
+                       {{#if  this.smiley  }}
+            <div class="ui basic border-0 stackable  p-0 buttons  ">
+  <button class="ui button" data-tooltip="Angry" id="{{this.id}}" onclick="submitRadio(this.id, 'Angry' , 'faculty')" ><i class="far fa-angry"></i></button>
+ 
+  <button class="ui   button border-0 " data-tooltip="Not good" id="{{this.id}}" onclick="submitRadio(this.id, 'Not good' , 'faculty')" ><i class="far fa-frown"></i></button>
+   <button class="ui button border-0" data-tooltip="Neutral" id="{{this.id}}" onclick="submitRadio(this.id, 'Neutral' , 'faculty')" ><i class="far fa-meh"></i></button>
+  <button class="ui button border-0" data-tooltip="Good" id="{{this.id}}" onclick="submitRadio(this.id, 'Good' , 'faculty')" ><i class="far fa-smile"></i></button>
+  <button class="ui button border-0" data-tooltip="Brilliant" id="{{this.id}}" onclick="submitRadio(this.id, 'Brilliant' , 'faculty')" ><i class="far fa-laugh"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+
+                {{!-- like dislike --}}
+                {{#if  this.like  }}
+                <div class="ui basic border-0   buttons">
+                  <button class="ui button" id="{{this.id}}" onclick="submitRadio(this.id, 'Like' , 'faculty')">
+                    <i class="far fa-thumbs-up"></i>
+                  </button>
+                  <button class="ui button" id="{{this.id}}" onclick="submitRadio(this.id, 'Dislike' , 'faculty')">
+                    <i class="far fa-thumbs-down"></i>
+                  </button>
+                </div>
+
+
+                {{/if}}
+
+
+
+
+                {{!-- star  rating --}}
+                {{#if  this.star  }}
+                <div class="ui star rating facultyStarRating" data-id="{{this.id}}"     data-rating="0"  data-max-rating="5" onclick="starRatingSubmit(this.id)"></div>
+                {{/if}}
+
+                {{#if  this.comment  }}
+                <div class="ui form">
+                  <div class="field fluid">
+                    <div class="field">
+                      <textarea   id="{{this.id}}" onchange="submitComment(this.id, this.value, 'faculty')" cols="30" rows="3" name="{{this.id}}"  placeholder="Write your feedback"></textarea>
+                    </div>
+                  </div>
+                </div>
+                {{/if}}
+
+
+
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
+          <a href="/submitFeedback" type="submit" class="ui  violet animated   button">
+            <div class="ui visible content">Submit</div>
+            <div class="ui hidden content">
+              <i class="fas fa-long-arrow-alt-right "></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <script>
+
+
+    $("#next").click(function () {
+
+      $('.ui.modal').modal('hide');
+
+
+    });
+    $('.ui.modal').modal({
+      closable: false,
+    })
+      .modal('show')
+      ;
+
+
+
+
+  </script>

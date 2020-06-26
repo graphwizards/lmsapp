@@ -1,0 +1,103 @@
+<div class="ui header">
+    My Feedback
+</div>
+<div class="ui divider"></div>
+{{#if fromAdminQuestions}}
+<div class="ui   segment">
+  <a class="ui  yellow ribbon label">Administrator Questions</a>
+  <div class="ui divider"></div>
+  <div class="ui basic segment">
+
+  
+  <div class="ui  yellow accordion">
+       {{#each fromAdminQuestions  }}
+   
+        <div class="ui small header title  ">
+    <i class="dropdown icon"></i>
+    {{this.question}}
+  </div>
+  <div class="content  ">
+    <table class="ui small celled table">
+  <thead>
+    <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Answer</th>
+  </tr></thead>
+  <tbody>
+     {{#each this.answers }}
+           <tr>
+          <td>{{this.date}}</td>
+          <td>{{this.studentName}}</td>
+          <td> {{this.phone}}</td>
+          <td>{{this.email}} </td>
+          <td>{{this.value}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+ 
+</table>
+  </div>
+  {{/each}}
+
+  
+ 
+</div>
+</div>
+
+
+
+{{!--  --}}
+  <a class="ui  green ribbon label">My Feedback Questions</a>
+  <div class="ui divider"></div>
+  <div class="ui basic segment">
+
+  
+  <div class="ui  yellow accordion">
+       {{#each questions  }}
+   
+        <div class="ui small header title  ">
+    <i class="dropdown icon"></i>
+    {{this.question}}
+  </div>
+  <div class="content  ">
+   <div class="ui container">
+ <table class="ui small celled table">
+  <thead>
+    <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Answer</th>
+  </tr></thead>
+  <tbody>
+    {{#each this.answers }}
+           <tr>
+          <td>{{this.date}}</td>
+          <td>{{this.studentName}}</td>
+          <td> {{this.phone}}</td>
+          <td>{{this.email}} </td>
+          <td>{{this.value}}</td>
+      </tr>
+    {{/each}}
+ 
+  </tbody>
+ 
+</table>
+
+   </div>
+  </div>
+  {{/each}}
+
+  
+ 
+</div>
+</div>
+ 
+
+</div>
+    
+{{/if}}

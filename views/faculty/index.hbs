@@ -1,0 +1,43 @@
+<div class="ui mini  modal">
+    <div class="ui  header">Faculty login
+        <div class=" mt-2 sub header">LM Thapar School of Management</div>
+    </div>
+    
+    <div class="  content">
+        <img class="image">
+        <form action="/faculty/login" method="POST" class="ui fluid form">
+            <div class="ui fluid field">
+                {{#if error}}
+                    <div class="ui red  message">
+                    
+                    
+                        {{error}}
+               
+                
+                    </div>
+                   
+                {{/if}}
+                <label for="employeeID">Employee ID</label>
+                <input type="text" name="employeeid" required placeholder="Enter your Employee ID">
+            </div>
+            <div class="ui fluid field">
+                <label for="employeeID">Password</label>
+                <input type="password" name="password" required placeholder="Enter Your Password">
+            </div>
+            <button class="ui violet fluid button ">Login</button>
+            
+
+
+        </form>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+         $('.ui.modal') .modal({
+        closable: false
+     })
+  .modal('show')
+;
+    });
+</script>

@@ -1,0 +1,158 @@
+<div class="ui stackable grid padded">
+    <div class="ui row m-0">
+        <div class="ui sixteen wide column">
+            <h4 class="ui horizontal divider header">Add Faculty</h4>
+        </div>
+    </div>
+
+</div>
+<form action="/admin/createFaculty" method="POST" class="ui form">
+    <div class="ui three column stackable grid padded">
+
+
+        <div class="ui column">
+            <div class="ui segment">
+                <div class="ui purple ribbon label">Administrator Info</div>
+                <div class="ui divider"></div>
+                
+
+                <div class="field fluid">
+                    <label>Employee ID</label>
+                    <div class="field">
+                        <input type="text" required name="employeeId" placeholder="Enter  Employee ID">
+                    </div>
+                </div>
+
+                <div class="field fluid">
+                    <label>Employee Code</label>
+                    <div class="field">
+                        <input type="text" required name="employeeCode" placeholder="Enter  Employee Code">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="ui segment">
+                <div class="ui purple ribbon label">Contact Info</div>
+                <div class="ui divider"></div>
+
+
+                <div class="field fluid">
+                    <label>Email</label>
+                    <div class="field">
+                        <input type="email" required name="email" placeholder="Enter  Email">
+                    </div>
+                </div>
+
+                <div class="field fluid">
+                    <label>Contact Number</label>
+                    <div class="field">
+                        <input type="text" required name="phone" placeholder="Enter Contact Number">
+                    </div>
+                </div>
+
+               
+
+            </div>
+
+        </div>
+
+        {{!-- second column --}}
+        <div class="ui column">
+            <div class="ui segment">
+                <div class="ui purple ribbon label">Basic Info</div>
+                <div class="ui divider"></div>
+
+
+                <div class="field fluid">
+                    <label>Name</label>
+                    <div class="field">
+                        <input type="text" required name="fullName" placeholder="Enter Full Name">
+                    </div>
+                </div>
+                <div class="field">
+
+                    <div class="two fields">
+                        <div class="field">
+                            <input type="text" name="city" required name="firstName" list="city"
+                                placeholder="First Name">
+                        </div>
+
+                        <div class="field">
+                            <input type="text" name="pincode" required name="lastName" list="pincode"
+                                placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field fluid">
+                    <label>Gender</label>
+                    <div class="field">
+                        <select name="gender" class="ui dropdown" id="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+               
+
+              
+
+
+            </div>
+
+        </div>
+
+
+        {{!-- Thrid column --}}
+        <div class="ui column">
+            <div class="ui segment">
+                <div class="ui purple ribbon label">Others Info</div>
+                <div class="ui divider"></div>
+
+   <div class="field fluid">
+                    <label>Joining Date</label>
+                    <div class="field">
+                        <input type="date" name="joiningDate" placeholder="Enter Graduation">
+                    </div>
+                </div>
+
+                <div class="field fluid">
+                    <label>Designation</label>
+                    <div class="field">
+                        <input type="text" name="designation" placeholder="Enter Designation">
+
+                    </div>
+                </div>
+                <div class="field fluid">
+                    <label>Specialization</label>
+                    <div class="field">
+                        <div class="ui fluid input">
+                            <select class="ui required fluid search dropdown" name="subjects">
+                               
+                             {{#each subjectsData }}
+                             <option value="{{this.name}} "> {{this.name}} </option>
+                                 
+                             {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+ 
+
+             
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="ui stackable grid padded">
+        <div class="ui sixteen wide column">
+            <button class="ui right floated purple button">Submit</button>
+        </div>
+    </div>
+</form>

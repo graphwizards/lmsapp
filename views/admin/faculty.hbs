@@ -1,0 +1,128 @@
+<div class="ui stackable grid padded">
+    <div class="ui row m-0">
+        <div class="ui sixteen wide column">
+            <div class="ui basic buttons bg-white shadow-sm">
+
+                <a href="#" class="ui button"><i class="icon excel file alternate"></i> Upload Excel</a>
+                <a href="/admin/addFaculty" class="ui button"><i class="icon user plus"></i> Add Faculty</a>
+            </div>
+        </div>
+        <div class="ui sixteen wide column">
+            <h4 class="ui   horizontal divider header py-4">Faculty</h4>
+{{#if facultydata}}
+    
+
+<div class="ui segments">
+            {{#each facultydata }}
+<div >
+            <div class="ui  segment" id="card_{{this.id}}">
+                 <div class="ui right floated   dropdown basic icon button  ">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <div class="ui   menu">
+                            <div  id="{{this.id}}" data-name="{{this.name}}" onclick="deletefaculty(this.id)" class="item">Delete</div>
+                            {{#if active}}
+                                
+                             <a   href="/admin/deactivateFaculty/:{{this.id}}" onclick="deletefaculty(this.id)" class="item">Deactivate</a>
+
+                                {{else}}
+                             <a   href="/admin/activateFaculty/:{{this.id}}" onclick="deletefaculty(this.id)" class="item">Activate</a>
+
+                            {{/if}}
+                        </div>
+                    </div>
+                <div class="ui six column stackable grid padded">
+                   
+                    <div class="ui row m-0">
+                        <a class="ui column" href="/admin/facultyProfile/:{{this.id}}">
+
+                            <div class="ui sub header text-primary  font-weight-bold">
+
+
+                                {{this.fullName}}
+
+                            </div>
+                            <span class=" grey text-black">
+                                {{this.designation}}
+                            </span>
+                        </a>
+                        {{!-- second column --}}
+                        <div class="ui column">
+                            <h5 class="ui grey sub header text-black-50">Employee ID</h5>
+                            <div class="ui subheader text-black text-black text-black">
+                                {{this.employeeId}}
+                            </div>
+                        </div>
+
+                        {{!-- third column --}}
+                         <div class="ui column">
+                            <h5 class="ui grey sub header text-black-50">Email</h5>
+
+                            <div class="ui subheader text-black text-black text-black">
+                                {{this.email}}
+                            </div>
+                        </div>
+                          {{!-- fourth column --}}
+                         <div class="ui column">
+                            <h5 class="ui grey sub text-black-50 header">Phone</h5>
+
+                            <div class="ui subheader text-black text-black text-black">
+                                {{this.phone}}
+                            </div>
+                        </div>
+                          {{!-- fifth column --}}
+                         <div class="ui column">
+                            <h5 class="ui grey sub  header text-black-50">Specialization</h5>
+
+                            <div class="ui subheader text-black text-black text-black">
+                                {{this.subjects}}
+                            </div>
+                        </div>
+
+                        {{!-- sixth column --}}
+<div class="ui column">
+    
+                            <h5 class="ui grey sub header text-black-50">   </h5>
+
+                            <div class="ui  subheader text-black text-black text-black text-black">
+                                {{#if active}}
+                              <i class="icon green check"></i> Activated
+                              
+                            {{else}}
+                               <i class="icon orange times"></i> Deactivated
+                                {{/if}}
+                            </div>
+                            
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+</div>
+
+            {{/each}}
+</div>
+{{else}}
+<div class="ui placeholder segment">
+  
+  <div class="ui two column stackable center aligned grid">
+    <div class="ui vertical divider">Or</div>
+    <div class="middle aligned row">
+      <div class="column">
+        <a href="#" class="ui basic   button">Upload Excel</a>
+      </div>
+      <div class="column">
+      <a href="/admin/addFaculty" class="ui basic   button">Add New</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
+
+        </div>
+
+
+
+
+    </div>
+</div>

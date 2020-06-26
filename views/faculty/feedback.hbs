@@ -1,0 +1,458 @@
+<div class="ui stackable grid padded">
+<div class="ui sixteen wide column">
+    <h3 class=" ui header text-black-70">Feedback Questions</h3>
+    <div class="ui divider"></div>
+</div>
+
+</div>
+<div class="ui two column stackable grid padded">
+
+  {{!-- Activated questions container --}}
+    <div class="ui column">
+        <div class="ui   stacked segment">
+          {{#if fromAdminQuestions}}
+             <a class="ui  yellow ribbon label">Administrator Questions</a>
+              
+             {{!-- questions from admin --}}
+             {{#each fromAdminQuestions }}
+  <div class="ui    fluid card dissable-cards">
+      
+       <div class="content">
+        
+           
+      <div class="header">{{this.question}} </div>
+     
+      <div class="description">
+           
+        
+       {{#if  this.yes  }}
+    <div class="ui form">
+         <div class="inline fields">
+     
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="{{this.id}}" checked="" tabindex="0" class="hidden">
+        <label>Yes</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+        <label>No</label>
+      </div>
+    </div>
+
+  </div>
+    </div>
+     
+        {{/if}}
+
+               {{#if  this.rating  }}
+    <div class="ui form">
+         <div class="inline fields">
+     
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+        <label>1</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>2</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>3</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>4</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>5</label>
+      </div>
+    </div>
+
+  </div>
+    </div>
+     
+        {{/if}}
+
+            {{#if  this.smiley  }}
+            <div class="ui basic border-0 stackable  p-0 buttons  ">
+  <button class="ui button" data-tooltip="Angry" ><i class="far fa-angry"></i></button>
+ 
+  <button class="ui   button border-0 " data-tooltip="Not good" ><i class="far fa-frown"></i></button>
+   <button class="ui button border-0" data-tooltip="Neutral" ><i class="far fa-meh"></i></button>
+  <button class="ui button border-0" data-tooltip="Good" ><i class="far fa-smile"></i></button>
+  <button class="ui button border-0" data-tooltip="Brilliant" ><i class="far fa-laugh"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+            {{#if  this.like  }}
+            <div class="ui basic border-0   buttons">
+  
+  <button class="ui button border-0" data-tooltip="Like"><i class="far fa-thumbs-up"></i></button>
+  <button class="ui button border-0" data-tooltip="Dislike"><i class="far fa-thumbs-down"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+        
+          {{#if  this.star  }}
+            <div class="ui star rating"     ></div>
+        {{/if}}
+     {{#if  this.comment  }}
+           <div class="ui form">
+                <div class="field fluid">
+                   
+                    <div class="field">
+                      <textarea name="" id="" cols="30" rows="3" placeholder="Write your feedback"></textarea>
+                    </div>
+                </div>
+           </div>
+        {{/if}}
+
+
+
+</div>
+    </div>
+  </div>
+{{/each}}
+{{!-- end of admin questions --}}
+            
+          {{/if}}
+
+<a class="ui green ribbon label">My Feedback Questions</a>
+{{#each questions }}
+  <div class="ui fluid card">
+      
+       <div class="content">
+         <div class="ui right floated pointing dropdown  ">
+           <i class="fas fa-ellipsis-v"></i>
+
+           <div class="ui menu">
+             <a href="/faculty/deleteFeedbackQuestion/{{this.id}}" class="item"><i class="far fa-trash-alt mr-2"></i> Delete</a>
+             <a href="/faculty/deactivateFeedbackQuestion/{{this.id}}" class="item"><i class="far fa-times-circle mr-2"></i> Deactivate</a>
+           </div>
+         </div>
+           
+      <div class="header">{{this.question}} </div>
+     
+      <div class="description">
+           
+        
+       {{#if  this.yes  }}
+    <div class="ui form">
+         <div class="inline fields">
+     
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="{{this.id}}" checked="" tabindex="0" class="hidden">
+        <label>Yes</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="{{this.id}}" tabindex="0" class="hidden">
+        <label>No</label>
+      </div>
+    </div>
+
+  </div>
+    </div>
+     
+        {{/if}}
+
+               {{#if  this.rating  }}
+    <div class="ui form">
+         <div class="inline fields">
+     
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+        <label>1</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>2</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>3</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>4</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>5</label>
+      </div>
+    </div>
+
+  </div>
+    </div>
+     
+        {{/if}}
+
+            {{#if  this.smiley  }}
+            <div class="ui basic border-0 stackable  p-0 buttons  ">
+  <button class="ui button" data-tooltip="Angry" ><i class="far fa-angry"></i></button>
+ 
+  <button class="ui   button border-0 " data-tooltip="Not good" ><i class="far fa-frown"></i></button>
+   <button class="ui button border-0" data-tooltip="Neutral" ><i class="far fa-meh"></i></button>
+  <button class="ui button border-0" data-tooltip="Good" ><i class="far fa-smile"></i></button>
+  <button class="ui button border-0" data-tooltip="Brilliant" ><i class="far fa-laugh"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+            {{#if  this.like  }}
+            <div class="ui basic border-0   buttons">
+  
+  <button class="ui button border-0" data-tooltip="Like"><i class="far fa-thumbs-up"></i></button>
+  <button class="ui button border-0" data-tooltip="Dislike"><i class="far fa-thumbs-down"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+        
+          {{#if  this.star  }}
+            <div class="ui star rating"     ></div>
+        {{/if}}
+     {{#if  this.comment  }}
+           <div class="ui form">
+                <div class="field fluid">
+                   
+                    <div class="field">
+                      <textarea name="" id="" cols="30" rows="3" placeholder="Write your feedback"></textarea>
+                    </div>
+                </div>
+           </div>
+        {{/if}}
+
+
+
+</div>
+    </div>
+  </div>
+{{/each}}
+ 
+        </div>
+
+        
+
+{{!-- deactivate questions container --}}
+{{#if deactiveQuestions}}
+      {{!-- deactive questions --}}
+    <div class="  ">
+      <div class="ui  orange stacked segment">
+          <a class="ui orange ribbon label">Deactivated Question</a>
+          <div class="ui divider"></div>
+        {{#each deactiveQuestions }}
+  <div class="ui fluid card">
+      
+       <div class="content">
+         <div class="ui right floated pointing dropdown  ">
+           <i class="fas fa-ellipsis-v"></i>
+
+           <div class="ui menu">
+             <a href="/faculty/deleteFeedbackQuestion/{{this.id}}" class="item"><i class="far fa-trash-alt mr-2"></i> Delete</a>
+             <a href="/faculty/activateFeedbackQuestion/{{this.id}}" class="item"><i class="far fa-check-circle"></i> Activate</a>
+           </div>
+         </div>
+           
+      <div class="header">{{this.question}} </div>
+     
+      <div class="description">
+           
+        
+       {{#if  this.yes  }}
+    <div class="ui form">
+         <div class="inline fields">
+     
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+        <label>Yes</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>No</label>
+      </div>
+    </div>
+
+  </div>
+    </div>
+     
+        {{/if}}
+
+               {{#if  this.rating  }}
+    <div class="ui form">
+         <div class="inline fields">
+     
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+        <label>1</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>2</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>3</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>4</label>
+      </div>
+    </div>
+     <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>5</label>
+      </div>
+    </div>
+
+  </div>
+    </div>
+     
+        {{/if}}
+
+            {{#if  this.smiley  }}
+            <div class="ui basic border-0 stackable  p-0 buttons  ">
+  <button class="ui button"><i class="far fa-angry"></i></button>
+ 
+  <button class="ui button border-0 "><i class="far fa-frown"></i></button>
+   <button class="ui button border-0"><i class="far fa-meh"></i></button>
+  <button class="ui button border-0"><i class="far fa-smile"></i></button>
+  <button class="ui button border-0"><i class="far fa-laugh"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+            {{#if  this.like  }}
+            <div class="ui basic border-0   buttons">
+  
+  <button class="ui button border-0"><i class="far fa-thumbs-up"></i></button>
+  <button class="ui button border-0"><i class="far fa-thumbs-down"></i></button>
+</div>
+    <div class="ui form">
+     
+    </div>
+     
+        {{/if}}
+        
+          {{#if  this.star  }}
+            <div class="ui star rating"     ></div>
+        {{/if}}
+     {{#if  this.comment  }}
+           <div class="ui form">
+                <div class="field fluid">
+                   
+                    <div class="field">
+                      <textarea name="" id="" cols="30" rows="3" placeholder="Write your feedback"></textarea>
+                    </div>
+                </div>
+           </div>
+        {{/if}}
+
+
+
+</div>
+    </div>
+  </div>
+{{/each}}
+      </div>
+    </div>
+{{/if}}
+
+    </div>
+    {{!-- create questions --}}
+    <div class="ui column">
+        <div class="ui segment">
+             <a class="ui violet ribbon label">Create Question</a>
+             <div class="ui divider"></div>
+        <form action="/faculty/createFeedbackQuestion" method="POST" class="ui form" onsubmit="feedbackQuestionForm">
+              <div class="field fluid">
+                    <label>Question Type</label>
+                    <div class="field">
+                        <select name="questionType" required class="ui dropdown"  id="program">
+                            <option value="">--Select Question Type--</option>                        
+                                <option value="rating">Rating 1-5</option>
+                                <option value="smiley">Smiley</option>
+                                <option value="starRating">5 Star Rating</option>
+                                <option value="yes">Yes/No</option>
+                                <option value="like">Like/Dislike</option>
+                                <option value="comment">Comment</option>
+                        </select>
+                    </div>
+                </div>
+
+                   <div class="field fluid">
+                    <label>Question </label>
+                    <div class="field">
+                        <input type="text" required name="question" placeholder="Enter  your question">
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="ui violet button">Submit</button>
+                </div>
+        </form>
+        </div>
+   <div class="ui segment">
+     <a class="ui violet ribbon label">Form Link</a>
+     <div class="ui divider"></div>
+     <div class="ui grey sub header">Form Link</div>
+     <a target="blank" href="http://localhost:5000/sendfeedback/{{user.id}}">http://localhost:5000/sendfeedback/{{user.id}}</a>
+     <div class="ui divider"></div>
+     <div class="ui grey sub header">Qr Code</div>
+     <img src="
+       {{qrcode}}
+     " alt="">
+     <div class="ui divider"></div>
+     <a href="/faculty/myfeedback" class="ui violet button">My Feedbacks</a>
+   </div>
+    </div>
+
+
+</div>

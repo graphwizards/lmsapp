@@ -1,0 +1,77 @@
+<div class="ui stackable grid padded">
+    <div class="ui row m-0">
+        <div class="ui sixteen wide column">
+            <div class="ui basic buttons bg-white shadow-sm">
+
+                <a href="#" class="ui button"><i class="icon excel file alternate"></i> Upload Excel</a>
+                <a href="/admin/addStudent" class="ui button"><i class="icon user plus"></i> Add Student</a>
+            </div>
+        </div>
+        <div class="ui sixteen wide column">
+            <h4 class="ui   horizontal divider header py-4">Students</h4>
+
+<div class="ui segments">
+            {{#each studentsData }}
+
+            <div class="ui  segment">
+                <div class="ui five column stackable grid padded">
+                    <div class="ui row m-0">
+                        <div class="ui column">
+
+                            <div class="ui sub header text-primary  font-weight-bold">
+
+
+                                {{this.fullName}}
+
+                            </div>
+                            <span class=" grey">
+                                {{this.reg_no}}
+                            </span>
+                        </div>
+                        {{!-- second column --}}
+                        <div class="ui column">
+                            <h5 class="ui grey sub header">Roll No</h5>
+                            <div class="ui subheader">
+                                {{this.roll_no}}
+                            </div>
+                        </div>
+
+                        {{!-- third column --}}
+                         <div class="ui column">
+                            <h5 class="ui grey sub header">Email</h5>
+
+                            <div class="ui subheader">
+                                {{this.email}}
+                            </div>
+                        </div>
+                          {{!-- fourth column --}}
+                         <div class="ui column">
+                            <h5 class="ui grey sub header">Contact</h5>
+
+                            <div class="ui subheader">
+                                {{this.contact}}
+                            </div>
+                        </div>
+                          {{!-- fifth column --}}
+                         <div class="ui column">
+                            <h5 class="ui grey sub header">Program</h5>
+
+                            <div class="ui subheader">
+                                {{this.program}}
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+
+            {{/each}}
+</div>
+        </div>
+
+
+
+
+    </div>
+</div>
